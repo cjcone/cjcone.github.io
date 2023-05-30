@@ -1,3 +1,7 @@
+layout: page
+title: "Additional Router for IoT Network"
+permalink: /IotNetwork
+
 # Background
 I spent many hours trying to figure out how to create a separate IoT network that still allows devices on the secure network to find and initiate communication with devices on the IoT network, but prevents devices on the IoT network from accessing devices on the secure network. After a lot of searching I was thinking this could only be done with a router or 3rd-party router firmware that offers VLan capabilities. Even my RT-AX86U Pro offers VLan capabilities but there was no configuration that allows one-way communication with another network.
 
