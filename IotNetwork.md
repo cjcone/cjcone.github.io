@@ -22,7 +22,7 @@ All modern routers should come with a built-in firewall enabled by default. The 
 We can use this feature to create a separate network that can still communicate with and discover devices on an IoT network. We leverage the standard firewall capabilities of the router, but instead of the firewall protecting its devices from the internet, it’s protecting its devices from the IoT network. If a device on the IoT network is compromised, there is some security to prevent it from discovering and communicating with a device on the secure network.
 
 # Setup
-Setup is fairly easy by networking standards. Modern routers should come with the correct settings by default. The trickiest part is making sure the additional router has a different local IP from the IoT router, and that its DHCP server is assigning a different range of IPs.
+Setup is fairly easy by networking standards. Modern routers should come with the correct settings by default. There are a few settings that need tweaking to get the routers to play nice together.
 
 1. Set up a router to be the IoT router.
    - Make sure its firewall is enabled.
@@ -32,6 +32,7 @@ Setup is fairly easy by networking standards. Modern routers should come with th
    - Make sure its firewall is enabled.
    - In its LAN settings, make sure it has a different IP address from the IoT router. My IoT router uses `192.168.1.1` and my secure router uses `192.168.2.1`
    - In its LAN DHCP Server settings, make sure its IP pool address range is different from the IoT router’s address range. My IoT router has the range `192.168.1.2` to `192.168.1.254`, while my secure router has the range `192.168.2.2` to `192.168.2.254`
+   - In its WAN settings, set its DNS server to the IP of the IoT router and enable the option to forward local domain queries to the upstream DNS. This allows DNS queries on the secure router to be able to find devices that are on the IoT router.
    - Connect its WAN port to a LAN port on the IoT router
    - All secure devices should connect to this router
 
